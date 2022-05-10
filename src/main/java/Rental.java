@@ -1,13 +1,16 @@
 class Rental {
     private Movie movie;
     private int daysRented;
+
     public Rental(Movie newmovie, int newdaysRented) {
         movie = newmovie;
         daysRented = newdaysRented;
     }
+
     public int getDaysRented() {
         return daysRented;
     }
+
     public Movie getMovie() {
         return movie;
     }
@@ -23,12 +26,13 @@ class Rental {
             case Movie.NEW_RELEASE:
                 thisAmount += rental.getDaysRented() * 3;
                 break;
-            case Movie.CHILDRENS:
+            case Movie.CHILDREN:
                 thisAmount += 1.5;
                 if (rental.getDaysRented() > 3)
                     thisAmount += (rental.getDaysRented() - 3) * 1.5;
                 break;
         }
+
         return thisAmount;
     }
 }
