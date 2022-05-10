@@ -28,7 +28,7 @@ class Customer {
             double thisAmount = 0;
             Rental rental = (Rental) enum_rentals.nextElement();
             //determine amounts for each line
-            thisAmount = rental.getCharge(rental);
+            thisAmount = rental.getCharge();
             // add frequent renter points
             frequentRenterPoints ++;
             // add bonus for a two day new release rental
