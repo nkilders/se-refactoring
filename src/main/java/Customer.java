@@ -26,12 +26,12 @@ class Customer {
         while (enumeration.hasMoreElements()) {
             Rental rental = enumeration.nextElement();
             //show figures for this rental
-            result += "\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + String.valueOf(rental.getCharge()) + "\n";
+            result += "\t" + rental.getMovie().getTitle()+ "\t" + "\t" + rental.getDaysRented() + "\t" + rental.getCharge() + "\n";
         }
 
         //add footer lines
-        result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-        result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
+        result += "Amount owed is " + getTotalCharge() + "\n";
+        result += "You earned " + getTotalFrequentRenterPoints() + " frequent renter points";
 
         return result;
     }
