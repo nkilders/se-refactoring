@@ -9,7 +9,7 @@ public class RentalTest {
 
     @BeforeEach
     public void beforeEach() {
-        m1 = new Movie("Hehe", Movie.CHILDREN);
+        m1 = new Movie("Hehe", new PriceNewRelease());
         r1 = new Rental(m1, 187);
     }
 
@@ -25,7 +25,7 @@ public class RentalTest {
 
     @Test
     public void getCharge() {
-        assertEquals(r1.getCharge(), 277.5);
+        assertEquals(r1.getCharge(), 561.0);
     }
 
 }

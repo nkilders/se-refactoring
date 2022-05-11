@@ -8,11 +8,11 @@ public class ProgramTest {
 
     @Before
     public void before() {
-        Movie m1 = new Movie("movie1", 1);
+        Movie m1 = new Movie("movie1", new PriceNewRelease());
         Rental r1 = new Rental(m1, 10);
         c1.addRental(r1);
 
-        Movie m2 = new Movie("movie2", 2);
+        Movie m2 = new Movie("movie2", new PriceNewRelease());
         Rental r2 = new Rental(m2, 5);
         c1.addRental(r2);
     }
@@ -22,9 +22,9 @@ public class ProgramTest {
         String result = "Rental Record for willi\n" +
                 "\tTitle\t\tDays\tAmount\n" +
                 "\tmovie1\t\t10\t30.0\n" +
-                "\tmovie2\t\t5\t4.5\n" +
-                "Amount owed is 34.5\n" +
-                "You earned 3 frequent renter points";
+                "\tmovie2\t\t5\t15.0\n" +
+                "Amount owed is 45.0\n" +
+                "You earned 4 frequent renter points";
 
         System.out.println(c1.statement());
         assertEquals(result, c1.statement());

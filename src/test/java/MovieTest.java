@@ -8,7 +8,7 @@ public class MovieTest {
 
     @BeforeEach
     public void beforeEach() {
-        m1 = new Movie("CYK", Movie.CHILDREN);
+        m1 = new Movie("CYK", new PriceChildren());
     }
 
     @Test
@@ -18,15 +18,15 @@ public class MovieTest {
 
     @Test
     public void getPriceCode() {
-        assertEquals(m1.getPriceCode(), Movie.CHILDREN);
+        assertEquals(m1.getPrice().getPriceCode(), Movie.CHILDREN);
     }
 
     @Test
     public void setPriceCode() {
-        assertEquals(m1.getPriceCode(), Movie.CHILDREN);
+        assertEquals(m1.getPrice().getPriceCode(), Movie.CHILDREN);
 
-        m1.setPriceCode(456);
+        m1.setPrice(new PriceNewRelease());
 
-        assertEquals(m1.getPriceCode(), 456);
+        assertEquals(m1.getPrice().getPriceCode(), new PriceNewRelease().getPriceCode());
     }
 }

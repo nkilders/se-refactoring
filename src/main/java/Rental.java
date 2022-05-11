@@ -18,4 +18,8 @@ class Rental {
     public double getCharge() {
         return this.movie.getCharge(this.daysRented);
     }
+
+    public int getFrequentRenterPoints() {
+        return this.movie.getFrequentRenterPoints(this.daysRented);
+    }
 }

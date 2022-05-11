@@ -52,15 +52,7 @@ class Customer {
 
         Enumeration<Rental> enumeration = rentals.elements();
         while(enumeration.hasMoreElements()) {
-            Rental rental = enumeration.nextElement();
-
-            // add frequent renter points
-            totalFrequentRenterPoints++;
-
-            // add bonus for a two day new release rental
-            if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE && rental.getDaysRented() > 1) {
-                totalFrequentRenterPoints++;
-            }
+            totalFrequentRenterPoints += enumeration.nextElement().getFrequentRenterPoints();
         }
 
         return totalFrequentRenterPoints;

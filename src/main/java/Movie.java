@@ -4,19 +4,19 @@ public class Movie {
     public static final int NEW_RELEASE = 1;
 
     private String title;
-    private int priceCode;
+    private AbstractPrice price;
 
-    public Movie(String title, int priceCode) {
+    public Movie(String title, AbstractPrice price) {
         this.title = title;
-        this.priceCode = priceCode;
+        this.price = price;
     }
 
-    public int getPriceCode() {
-        return priceCode;
+    public AbstractPrice getPrice() {
+        return price;
     }
 
-    public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
+    public void setPrice(AbstractPrice price) {
+        this.price = price;
     }
 
     public String getTitle (){
@@ -24,31 +24,10 @@ public class Movie {
     }
 
     public double getCharge(int daysRented) {
-        double charge = 0;
+        return this.price.getCharge(daysRented);
+    }
 
-        switch (this.priceCode) {
-            case Movie.REGULAR:
-                charge += 2;
-
-                if (daysRented > 2)
-                    charge += (daysRented - 2) * 1.5;
-
-                break;
-
-            case Movie.NEW_RELEASE:
-                charge += daysRented * 3;
-
-                break;
-
-            case Movie.CHILDREN:
-                charge += 1.5;
-
-                if (daysRented > 3)
-                    charge += (daysRented - 3) * 1.5;
-
-                break;
-        }
-
-        return charge;
+    public int getFrequentRenterPoints(int daysRented) {
+        return this.price.getFrequentRenterPoint(daysRented);
     }
 }
